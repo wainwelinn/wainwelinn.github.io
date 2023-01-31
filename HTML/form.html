@@ -7,14 +7,58 @@
     <title>Form</title>
 </head>
 <body>
-    <form action="" method="">
+    <h1>Student Registration Form</h1>
+    <form action="studentAction.php" method="POST">
         <label for="name">Name</label>
         <input type="text" name="stu_name" id="name">
         <br><br>
         <label for="email">Email</label>
         <input type="email" name="stu_email" id="email">
         <br><br>
+        <label for="password">Password</label>
+        <input type="password" name="stu_password" id="password">
+        <br><br>
+        <label for="phone">Phone</label>
+        <input type="number" name="stu_phone" id="phone">
+        <br><br>
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="stu_dob" id="dob">
+        <br><br>
+        <label for="passport">Passport</label>
+        <input type="file" accept="image/*" name="stu_passport" id="passport">
+        <br><br>
+        <label for="year">Year</label>
+        <select name="stu_year" id="year">
+            <option value="">Choose your year.</option>
+            <option value="first">First Year</option>
+            <option value="second">Second Year</option>
+            <option value="third">Third Year</option>
+        </select>
+        <br><br>
+        <label for="">Gender</label>
+        <br>
+        <input type="radio" name="gender" id="male"><label for="male">Male</label>
+        <input type="radio" name="gender" id="female"><label for="female">Female</label>
+        <br><br>
+        <label for="">Hobbies</label>
+        <br>
+        <input type="checkbox" name="travelling" id="travelling" value="travelling"><label for="travelling">Travelling</label>
+        <input type="checkbox" name="gaming" id="gaming" value="gaming"><label for="gaming">Gaming</label>
+        <input type="checkbox" name="watching_movie" id="watching_movie" value="watching_movie"><label for="watching_movie">Watching_Movie</label>
+        <input type="checkbox" name="eating" id="eating" value="eating"><label for="eating">Eating</label>
+        <input type="checkbox" name="reading" id="reading" value="reading"><label for="reading">Reading</label>
+        <input type="checkbox" name="swimming" id="swimming" value="swimming"><label for="swimming">Swimming</label>
+        <br><br>
+        <label for="address">Address</label>
+        <textarea name="stu_address" id="address" cols="30" rows="10"></textarea>
+        <br><br>
+        <input type="time" name="" id="">
+        <input type="week" name="" id="">
+        <input type="datetime-local" name="" id="">
+        <input type="color" name="" id="">
+        <br><br>
         <button type="submit">Submit</button>
+        <br><br>
     </form>
 </body>
 </html>
