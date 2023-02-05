@@ -1,0 +1,74 @@
+h3{
+    color:red;
+    /* color:red; keyword */
+    /* color: #ff0000; r g b => 0->9->a->f hexa code */
+    /* color:#f00; short hex code */
+    /* color: rgb{red,green,blue}; 0->255 */
+    /* color: rgb(255,0,0); */
+    text-align: center;
+    font-size: 40px;
+    width: 80%;
+    background-color: green;
+}
+
+
+/* universal selector */
+/* *{
+    color: red;
+    font-size: 30px;
+
+} */
+
+/* tag selector/element selector */
+h1{
+    text-align: center;
+    color: green;
+}
+
+/* attribute selector */
+a[title=google]{
+    color:yellow;
+}
+
+/* id selector */
+#idselector{
+    font-size: 50px;
+}
+
+/* class selector */
+.classselector{
+    color:blue;
+    letter-spacing: 10px;
+    word-spacing: 30px;
+    line-height: 40px;
+    text-transform: capitalize;
+}
+
+/* descendent selector */
+#desc a{
+    color:red;
+}
+
+/* child selector */
+#child>a{
+    color: green;
+}
+
+/* pseudo selector */
+a:link{
+    color:red;
+    text-decoration: none;
+}
+
+a:hover{
+    color:brown;
+    text-decoration:line-through;
+}
+
+a:active{
+    color:green;
+}
+
+a:visited{
+    color:yellow;
+}
