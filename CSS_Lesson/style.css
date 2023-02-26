@@ -18,6 +18,11 @@ h3{
     font-size: 30px;
 
 } */
+/* 
+*{
+    margin: 0;
+    padding: 0;
+} */
 
 /* tag selector/element selector */
 h1{
@@ -68,7 +73,199 @@ a:hover{
 a:active{
     color:green;
 }
-
 a:visited{
     color:yellow;
 }
+
+p:target{
+    color:green;
+    border: 1px solid red;
+}
+
+
+
+
+/* About Border */
+
+.borderone{
+    border: 20px dotted green;
+}
+
+.bordertwo{
+    border-top: 20px dotted red;
+    border-bottom: 5px solid green;
+}
+
+.borderstyle{
+    /* border-style: solid; */
+    /* all four T R B L */
+    /* border-style: solid dotted; */
+    /* T&B/ L&R */
+    /* border-style: solid dotted double; */
+    /* T/ L&R /B */
+    border-style: dashed solid dotted double;
+    /* T / R / B / L */
+}
+
+.bordercolor{
+    border-style: solid;
+    border-color: brown green;
+}
+
+.borderwidth{
+    border-style: solid;
+    border-width: 20px 50px;
+}
+
+/* margin */
+
+.margin{
+    border: 1px solid red;
+    /* margin: 40px;
+    all four
+    margin: 30px 50px;
+    T&B / L&R
+    margin: 100px 30px 50px;
+    T / L&R / B  */
+    margin: 100px 30px 50px 20px;
+    /* T / R / B / L */
+}
+
+.margintwo{
+    margin-top: 100px;
+    margin-right: 30px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    border: 1px solid green;
+}
+
+.padding{
+    border: 1px solid brown;
+    padding: 50px;
+    /* padding-top: 50px; */
+}
+
+.inline{
+    border: 1px solid black;
+    color: red !important;
+    width: 400px;
+    /* display: block; */
+    /* display: inline; */
+    display: inline-block;
+}
+
+.block{
+    border: 1px solid green;
+    width: 400px;
+    /* display: block; */
+    display: inline-block;
+}
+
+/* Float */
+.float_left img{
+    width: 40%;
+    float: left;
+}
+
+.clear{
+    clear:both;
+}
+
+.float_right img{
+    width: 40%;
+    float: right;
+}
+
+.gridone div, .gridtwo div, .gridthree div, .gridfour div{
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.gridone,.gridthree,.gridfour{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.gridtwo{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 40px;
+    grid-row-gap: 50px;
+    /* grid-gap: 50px; */
+}
+
+.columnadd{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/* 1 line Row add */
+/* .rowadd{
+    grid-row-start: 1;
+    grid-row-end: 3;
+} */
+
+/* 2line Row add */
+.rowadd{
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+/* position */
+
+.relative_parent{
+    border: 1px solid red;
+    width: 1000px;
+    height: 500px;
+}
+
+.relative{
+    border: 1px solid green;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 100px;
+    left: 200px;
+}
+
+.absolute_parent{
+    border: 1px solid brown;
+    width: 1000px;
+    height: 500px;
+    position: relative;
+}
+
+.absolute{
+    border: 1px solid yellow;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+.fixed{
+    top: 100px;
+    right: 100px;
+    position:fixed;
+}
+
+.online{
+    font-family: 'Anek Devanagari', sans-serif;
+    font-size: 40px;
+}
+
+@font-face{
+    src: url('alumni/AlumniSansCollegiateOne-Regular.ttf');
+    font-family: alumni;
+}
+
+.offline{
+    font-family: alumni;
+    font-size: 30px;
+    
+}
+
+
