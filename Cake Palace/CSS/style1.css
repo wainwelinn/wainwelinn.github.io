@@ -390,7 +390,7 @@ footer{
 }
 
 /* About Page */
-.banner_text1{
+.banner_text2{
     position: absolute;
     top: 350px;
     left: 120px;
@@ -401,16 +401,18 @@ footer{
     margin-left: 120px;
 }
 
-.banner_text1 p{
+.banner_text2 p{
     margin: 10px 0px;
     font-size: 16;
     list-style: none;
 }
-.banner_text1 h2{
+.banner_text2 h2{
     font-size: 40px;
     text-align: center;
     margin-top: -20px;
 }
+
+
 
 
 
@@ -823,6 +825,7 @@ footer{
 }
 
 .banner_text1{
+    
     margin-top: -30px;
     padding-left: 80px;
     padding-right: 80px;
@@ -860,16 +863,15 @@ footer{
     outline: none;
 }
 .banner_login{
-    text-align: center;
-    margin-top: 20px;
+    margin-left: 120px;
+    margin-top: 0px;
 }
 
-.banner_text1 .signin{
+/* .sigin{
     display: inline-block;
- 
     margin-bottom: 30px;
     margin-left: 160px;
-    margin-top: 20px;
+    margin-top: 120px;
     padding: 5px 5px;
     border-radius: 5px;
     border: 1px solid gray;
@@ -883,7 +885,40 @@ footer{
     cursor: pointer;
     background-color: white;
     color: black;
+} */
+
+.banner_text1 button{
+    margin-left: 170px;
+    margin-top: 30px;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    width: 80px;
+    background-color: #895b8a;
+    color: white;
 }
+
+
+
+
 .sign img{
     width: 100%;
 }
+
+
+.banner_text1{
+    position: absolute;
+    top: 350px;
+    left: 450px;
+    color: white;
+    /* background-color: rgba(42, 40, 40, 6); */
+    background-color: rgba(42, 25, 25, 0.416);
+    padding: 60px 60px;
+    margin-left: 120px;
+}
+
+.banner_text1 button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+} */
