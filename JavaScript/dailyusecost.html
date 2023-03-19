@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily use Cost</title>
+    <style>
+        body{
+            background-color: cadetblue;
+        }
+    h1{
+            margin-left: 650px;
+            color: white;
+        }
+    form{
+        display: inline-block;
+        margin-left: 500px;
+        background-color: rgb(82, 93, 97);
+        padding: 10px 10px;
+    }
+    .date,.item,.price{
+        height: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px 10px;
+       
+    }
+    .date input,.item input,.price input{
+        padding: 7px 7px;
+        width: 400px;
+        margin-left: 5px;
+        outline: none;
+    }
+    button{
+        margin-left: 200px;
+        padding: 5px 5px;
+        width: 80px;
+        margin-bottom: 30px;
+    }
+    .date label,.item label,.price label{
+        font-size: 20px;
+        color: white;
+    }
+  .table1{
+    display: inline-block;
+    margin-left: 580px;
+    border: 1px solid black;
+ 
+  }
+  .thead th{
+    color: white;
+    padding: 20px 20px;
+    border: 1px solid black;
+  }
+  .tfoot tr td{
+    color: white;
+    font-size: 20px;
+  }
+    
+    </style>
+</head>
+<body>
+    <h1>Daily Use Cost</h1>
+    <form action="" name="myForm">
+        <div class="date">
+        <label for="date">Date</label>
+        <input type="date" name="date"><br>
+        </div>
+        <div class="item">
+            <label for="item">Item</label>
+            <input type="text" name="item"><br>
+        </div>
+        <div class="price">
+            <label for="price">Price</label>
+            <input type="number" name="price"><br>
+        </div>
+       
+        
+        <button type="button" onclick="showData()">Add</button>
+
+    </form>
+    <h1>Daily Use List</h1>
+    <div class="table1">
+        <table border="1" cellpadding="15" cellspacing="0">
+            <thead>
+                <tr class="thead">
+                    <th>No</th>
+                    <th>Date</th>
+                    <th>Item</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+            <tfoot class="tfoot">
+                <tr>
+                    <td colspan="3" align="center">Total</td>
+                    <td id="total"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    
+
+    <script>
+        var dailyuseArray=[];
+        var dailytotal= 0;
+        function showData(){
+            // 1).get data from Form
+            let date=document.myForm.date.value;
+            let item=document.myForm.item.value;
+            let price=document.myForm.price.value;
+             //console.log(date,item,price);
+            
+            //Build Object
+            let dailyCost={
+                  daily_date : date,
+                  daily_item  : item,
+                  daily_price : price
+            }
+            // console.log(dailyCost);
+            
+            // 2). Array Input Data (array push)
+            dailyuseArray.push(dailyCost); 
+            dailytotal+= parseInt(price);
+            document.getElementById('total').innerHTML=dailytotal;
+            
+
+           showdailyCost();
+        }
+
+        function showdailyCost() 
+        {
+          let dailyUse='';
+           for (let i = 0; i < dailyuseArray.length; i++) {
+                console.log(dailyuseArray[i]);
+                let dailyuseObject=dailyuseArray[i];
+                dailyUse+= `<tr>
+                         <td>${i+1}</td>
+                          <td>${dailyuseObject.daily_date}</td>
+                           <td>${dailyuseObject.daily_item}</td>
+                            <td>${dailyuseObject.daily_price}</td>
+                            </tr>`;
+            }
+            document.getElementById('tbody').innerHTML=dailyUse;
+            
+         }
+    </script>
+</body>
+</html>

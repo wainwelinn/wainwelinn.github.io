@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <h1>Function</h1>
+    <script>
+        //Naming Function
+        function fullName() {
+            document.write(`<h1>Hello Naming function</h1><br>`);
+        }
+        fullName();
+        
+        //Arugment or Parameter Function
+        function sum(num1,num2) {
+            let result=num1+num2;
+            document.write(result);
+        }
+        sum(30,40);
+        sum(50,50);
+
+        //Default argument function
+        function sub(num1=100,num2=50) {
+            let result=num1-num2;
+            document.write(result);
+        }
+        sub();
+        sub(50,30); //user ka input ta ku ku htet htae lite yin default function ka ma lote talt pae nae user htet htae lite tae input ko pae a lote lote thwar late mal
+
+        //Return function
+        function result(num1,num2) {
+            let result=num1 * num2;
+            return result;
+        }
+        let multiresult=result(3,5);
+        document.write(multiresult+'<br>');
+    </script>
+</body>
+</html>

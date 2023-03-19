@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <h1>Array</h1>
+    <script>
+        let arr=[1,2,3];
+        console.log(arr[1]);
+        console.log(arr.length);
+        let fruits=['Apple','Orange','Banana'];
+        console.log(fruits);
+        fruits.push('Mango');
+        console.log(fruits);
+        fruits.pop();
+        console.log(fruits);
+
+        fruits.unshift('Cherry');
+        console.log(fruits);
+        fruits.unshift('Strawberry');
+        console.log(fruits);
+        fruits.shift();
+        console.log(fruits);
+        
+        let students=['Mg Mg','Aung Aung','Hla Hla','Tun Tun'];
+        console.log(students);
+
+        students.sort();
+        console.log(students);
+        students.reverse();
+        console.log(students);
+        students.sort().reverse();
+        console.log(students);
+
+        let students_str=students.toString();
+        console.log(students_str);
+
+        students.array=students_str.split(',');
+        console.log(students.array);
+
+        let names="Hla,Mya,Tun,Aung,Nyo";
+        console.log(names.split(','));
+
+        let name="Hla/Mya/Tun/Aung/Nyo";
+        console.log(name.split('/'));
+
+        let array1=[1,2,3];
+        let array2=[4,5,6];
+        let array3=array1.concat(array2);
+        console.log(array3);
+
+        let array4=[1,2,3];
+        let array5=[4,5,6];
+        let array6=[7,8,9];
+        let array7=[...array4,...array5,...array6];
+        console.log(array7);
+
+    </script>
+</body>
+</html>

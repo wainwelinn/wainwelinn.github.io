@@ -8,22 +8,84 @@
 </head>
 <body>
     <h1>Exam Result</h1>
-    <form action="">
+    <form name="myForm">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name"><br>
+        <input type="text" id="name" name="name"><br>
         <label for="myanmar">Myanmar</label>
-        <input type="number" name="Myanmar" id="myanmar"><br>
+        <input type="number" id="myanmar" name="myanmar"><br>
         <label for="english">English</label>
-        <input type="number" name="english" id="english"><br>
-        <label for="english">Math</label>
-        <input type="number" name="math" id="math"><br>
-        <label for="physics">Physics</label>
-        <input type="number" name="physics" id="physics"><br>
+        <input type="number" id="english" name="english"><br>
+        <label for="mathematics">Mathematics</label>
+        <input type="number" id="mathematics" name="mathematics"><br>
         <label for="chemistry">Chemistry</label>
-        <input type="number" name="chemist" id="chemistry"><br>
-        <label for="bio">Biology</label>
-        <input type="number" name="bio" id="biology"><br>
-
+        <input type="number" id="chemistry" name="chemistry"><br>
+        <label for="physics">Physics</label>
+        <input type="number" id="physics" name="physics"><br>
+        <label for="biology">Biology</label>
+        <input type="number" id="biology" name="biology"><br>
+      
+        <button type="button" onclick="result()">Result</button>
     </form>
+
+
+   
+
+    <script>
+        
+        function result() {
+            //alert('ok');
+        let name = document.myForm.name.value;
+        let myan= document.myForm.myanmar.value;
+        let eng= document.myForm.english.value;
+        let math= document.myForm.mathematics.value;
+        let chemist= document.myForm.chemistry.value;
+        let physics= document.myForm.physics.value;
+        let bio=document.myForm.biology.value;
+        let myanmar='';
+        let english='';
+        let mathematics='';
+        let chemistry='';
+        let physic='';
+        let biology='';
+        let credit=' is Pass With Credit :';
+        
+        // console.log(name,myanmar,english,mathematics,chemistry,physics,biology);
+        if (myan>=40 && eng>=40 && math>=40 && chemist>=40 && physics>=40 && bio>=40)
+        { 
+            if(myan>=75 || eng>=75 || math>=75 || chemist>=75 || physics>=75 || bio>=75)
+            {
+                if(myan >= 75 && myan <=100 ){
+                            myanmar = "Myanmar, ";
+                        }
+                        if(eng >= 75 && eng<=100){
+                            english = "English, ";
+                        }
+                        if(math >= 75 && math<=100){
+                            mathematics = "Math,";
+                        }
+                        if(physics >= 75 && physics <=100){
+                            physic = "Physics, ";
+                        }
+                        if(chemist >= 75 && chemist<=100){
+                            chemistry = "Chemistry, ";
+                        }
+                        if(bio >= 75 && bio <=100){
+                            bio = "Biology";
+                        }
+                        document.write(`${name}${credit}${myanmar}${english}${mathematics}${physic}${chemistry}${bio}`);
+                        
+                    }else{
+                        document.write(`${name} is pass!`);
+                    }
+            }   
+            else{
+                document.write(`${name} is fail!`)
+            }
+            
+           }
+     
+    
+    </script>
+    
 </body>
 </html>

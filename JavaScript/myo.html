@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Use</title>
+</head>
+<body>
+    <form action="" name = "myForm">
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date"><br>
+        <label for="item">Item</label>
+        <input type="text" name="item" id="item"><br>
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price"><br>
+        <button type="button" onclick="showData()">Save</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <h1>Daily Use</h1>
+    <table border="1" cellpadding="20" cellspacing="0">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Date</th>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" align="center">Total</td>
+                <td id="total"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        var dailyUseArray = [];
+        var total = 0;
+        function showData() {
+
+            // get data from form
+            let date = document.myForm.date.value;
+            let item = document.myForm.item.value;
+            let price = document.myForm.price.value;
+            //console.log(date,item,price,total);
+            
+            total += parseInt(price);
+            document.getElementById('total').innerHTML = total;
+
+            let dailyUse = {
+                dailyUse_date : date,
+                dailyUse_item : item,
+                dailyUse_price : price
+            };
+            //console.log(dailyUse);
+
+            // array push
+            dailyUseArray.push(dailyUse);
+           // console.log(dailyUseArray);
+
+            // show Daily Use
+            showDailyUse();
+        }
+
+        function showDailyUse() {
+            let html = ``;
+            for(let i = 0; i < dailyUseArray.length; i++) {
+                let dailyUseObject = dailyUseArray[i];
+                html += `
+                        <tr>
+                            <td>${i+1}</td>
+                            <td>${dailyUseObject.dailyUse_date}</td>
+                            <td>${dailyUseObject.dailyUse_item}</td>
+                            <td>${dailyUseObject.dailyUse_price}</td>
+                        </tr>
+                        `;
+            }
+            document.getElementById('tbody').innerHTML = html;
+        }
+    </script>
+</body>
+</html>

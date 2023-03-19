@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping</title>
+</head>
+<body>
+    <h1>For Loop</h1>
+    <script>
+        for(let i=1 ; i<= 10 ; i++){
+            document.write(`<h1>Hello World ${i}</h1>`);
+
+        }
+
+        //Array looping
+        let list=['Dell','Acer','Lenovo','HP','Asus','MacBook'];
+        // document.write(list[0]);
+        console.log(list.length);
+        for (let j = 0; j < list.length; j++) {
+            document.write(`<h1> ${list[j]}`);
+            
+        }
+
+        
+
+        //user number prompt
+        let number="Enter a promt number";
+        for (let number = 0; number <= 10; number++) {
+            document.write(`<p>${number*} `)
+            
+        }
+
+        //*****
+        // for (let g = 0; g < 5; g++) {
+        //     document.write(`*`);
+        // }
+
+        // *
+        // **
+        // ***
+        // ****
+        // *****
+        
+        for(let g = 0; g < 5; g++) {
+            for (let h = 0; h<=g; h++) {
+                document.write('*');
+           
+            }
+            document.write('<br>');
+            
+        }
+    
+
+        // *****
+        // ****
+        // ***
+        // **
+        // *
+
+        for(let m=5; m>0 ; m--){
+            for(let n=0; n< m ;n++){
+                document.write('*');
+            }
+            document.write('<br>');
+        }
+    
+
+        //while loop
+
+        // while (condition) {
+        //     //code
+                //updated
+        // }
+
+        let num =prompt("Enter a number");
+        while(num >= 100) {
+            document.write(`<h1>Your Number is ${num}`);
+                num-=5;
+                //num=num-5;
+        }
+
+
+    </script>
+</body>
+</html>
