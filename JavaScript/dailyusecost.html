@@ -75,11 +75,8 @@
             <label for="price">Price</label>
             <input type="number" name="price"><br>
         </div>
-       
-        
-        <button type="button" onclick="showData()">Add</button>
-
-    </form>
+       <button type="button" onclick="showData()">Add</button>
+</form>
     <h1>Daily Use List</h1>
     <div class="table1">
         <table border="1" cellpadding="15" cellspacing="0">
@@ -105,34 +102,26 @@
 
     <script>
         var dailyuseArray=[];
-        var dailytotal= 0;
+        //var dailytotal= 0;
         function showData(){
-            // 1).get data from Form
             let date=document.myForm.date.value;
             let item=document.myForm.item.value;
             let price=document.myForm.price.value;
              //console.log(date,item,price);
-            
-            //Build Object
             let dailyCost={
                   daily_date : date,
                   daily_item  : item,
                   daily_price : price
             }
             // console.log(dailyCost);
-            
-            // 2). Array Input Data (array push)
-            dailyuseArray.push(dailyCost); 
-            dailytotal+= parseInt(price);
-            document.getElementById('total').innerHTML=dailytotal;
-            
-
-           showdailyCost();
+            dailyuseArray.push(dailyCost);
+            showdailyCost();
         }
 
         function showdailyCost() 
         {
           let dailyUse='';
+          let dailytotal=0;
            for (let i = 0; i < dailyuseArray.length; i++) {
                 console.log(dailyuseArray[i]);
                 let dailyuseObject=dailyuseArray[i];
@@ -142,10 +131,12 @@
                            <td>${dailyuseObject.daily_item}</td>
                             <td>${dailyuseObject.daily_price}</td>
                             </tr>`;
+                dailytotal+= parseInt(dailyuseObject.daily_price);
             }
-            document.getElementById('tbody').innerHTML=dailyUse;
             
-         }
+            document.getElementById('tbody').innerHTML=dailyUse;
+            document.getElementById('total').innerHTML=dailytotal;
+        }
     </script>
 </body>
 </html>
