@@ -9,9 +9,16 @@
 <body>
     <h1>Property And Method</h1>
     <h2 id="createTextNodeId"></h2>
-    <h3></h3>
+    <h4 id="myId"></h4>
+    <!-- <h3></h3> -->
+    <p id="setAtt">This is Set Attribute</p>
+    <p style="color:red;border: 1px solid black;padding:30px;" id="getAtt">This is Get Attribute</p>
+    <p style="color:red;" id="color">Change Color</p>
     <button onclick="createText()">Create Text Node</button>
     <button onclick="createElementLesson()">Create Element Node</button>
+    <button onclick="createSetAtt()">Create Set Attribute</button>
+    <button onclick="createGetAtt()">Create Get Attribute</button>
+    <button onclick="changeColor()">Change Color</button>
     <script>
         function createText(){
             //alert('ok');
@@ -23,7 +30,37 @@
         function createElementLesson(){
             let h3=document.createElement('h3');
             h3.innerText='Create h3 Element';
-            document.body.appendChild(h3);
+            let myId=document.getElementById('myId');
+            myId.appendChild(h3);
+            //document.body.appendChild(h3);
+        }
+
+        //SetAttribute
+        function createSetAtt(){
+           // alert('ok');
+           let setAttr=document.getElementById('setAtt'); // de har ko output htoke kyi yin p tag 1 ku lone pya late mal
+            setAttr.setAttribute('style','color:red');
+        }
+
+        //GetAttribute
+        function createGetAtt(){
+            let getAtt=document.getElementById('getAtt');
+            console.log(getAtt.getAttribute('style'));
+
+        }
+
+        //RemoveAttribute
+        function changeColor(){
+            let color=document.getElementById('color');
+            let colorName=color.getAttribute('style');
+            if(colorName=="color:red"){
+                color.removeAttribute('style');
+                color.setAttribute('style','color:green');
+            }
+            else {
+                color.removeAttribute('style');
+                color.setAttribute('style','color:red');
+            }
         }
 
         
