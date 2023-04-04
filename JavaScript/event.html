@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <h1>Event Lessons</h1>
+    <img src="laptop.png" alt="" id="myImage" width="300px" height="300px" onmouseover="big()" onmouseleave="normal()">
+    <input type="text" onkeyup="sayHi()" id="myInput">
+    <p id="result"></p>
+    <!-- onmouseover, onmouseenter, onmouseout , onmouseleave, onmousedown, onclick,
+        onkeyup
+        onkeydown
+        onchange -->
+    <script>
+        function big(){
+            //alert('ok');
+            document.getElementById('myImage').style.width="500px";
+            document.getElementById('myImage').style.height="500px";
+        }
+
+        function normal(){
+            document.getElementById('myImage').style.width="300px";
+            document.getElementById('myImage').style.height="300px";
+        }
+
+        function sayHi(){
+            let res=document.getElementById('myInput').value;
+            //console.log(res);
+            document.getElementById('result').innerHTML=res;
+            
+        }
+    </script>
+
+</body>
+</html>

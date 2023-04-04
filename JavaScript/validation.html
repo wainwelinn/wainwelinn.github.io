@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+</head>
+<body>
+    <h1>JS Validation</h1>
+    <form action="register.php" onsubmit=" return checkValue()">
+        Name: <input type="text" id="name"><span id="name_error"></span><br>
+        Email: <input type="email" id="email"><span id="email_error"></span> <br>
+        Password: <input type="password" id="password1"><span id="password1_error"></span> <br>
+        Confirm Password: <input type="password" id="password2"><span id="password2_error"></span><br>
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        function checkValue(){
+            //alert('ok');
+        let name=document.getElementById('name').value;
+        let email=document.getElementById('email').value;
+        let password1=document.getElementById('password1').value;
+        let password2=document.getElementById('password2').value;
+            if(name==''){
+                document.getElementById('name').style.border='1px solid red';
+                document.getElementById('name_error').innerText="Name Field is Required";
+                document.getElementById('name_error').style.color='red';
+                return false;
+            }  
+            if(email=='') {
+                document.getElementById('email').style.border='1px solid red';
+            document.getElementById('email_error').innerText="Email Field is Required";
+            document.getElementById('email_error').style.color='red';
+            return false;
+
+            }
+            if(password1==''){
+                document.getElementById('password1').style.border='1px solid red';
+            document.getElementById('password1_error').innerText="Email Field is Required";
+            document.getElementById('password1_error').style.color='red';
+            return false;
+            }
+
+            if(password2==''){
+                document.getElementById('password2').style.border='1px solid red';
+            document.getElementById('password2_error').innerText="Email Field is Required";
+            document.getElementById('password2_error').style.color='red';
+            return false;
+            }
+     else{
+            
+                let name_Border=document.getElementById('name');
+                name_Border.removeAttribute('style');
+                let name_Error=document.getElementById('name_error');
+                name_Error.innerText='';
+
+                let email_Border=document.getElementById('email');
+                email_Border.removeAttribute('style');
+                let email_Error=document.getElementById('email_error');
+                email_Error.innerText='';
+             
+                let password1_Border=document.getElementById('password1');
+                password1_Border.removeAttribute('style');
+                let password1_Error=document.getElementById('password1_error');
+                password1_Error.innerText='';
+              
+                let password2_Border=document.getElementById('password2');
+                password2_Border.removeAttribute('style');
+                let password2_Error=document.getElementById('password2_error');
+                password2_Error.innerText='';
+              
+            
+        
+            if(password1!=password2)
+                {
+                    document.getElementById('password2').style.border='1px solid red';
+                    document.getElementById('password2_error').innerText="Incorrect Passowrd";
+                    document.getElementById('password2_error').style.color="red";
+             
+             return false;
+                }
+    
+                return true;
+            }
+        }
+
+
+              
+
+    
+    
+    
+            
+
+            
+            
+            
+
+        
+    </script>
+</body>
+</html>

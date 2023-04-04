@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>JS Validation</h1>
+    <form method="get" action="register.php" onsubmit="return checkValue()">
+        Name : <input type="text" id="name" name="name"><span></span><br>
+        Password : <input type="password" id="pw" name="pw"><br>
+        Confirm : <input type="password" id="cpw" name="cpw"><br>
+        <input type="submit" value="Save">
+    </form>
+
+    <script>
+        function checkValue() {
+            let name = document.querySelector('#name').value;
+            let pw = document.querySelector('#pw').value;
+            let cpw = document.querySelector('#cpw').value;
+            // console.log(name,pw,cpw);
+
+            if(name.length <= 3) {
+                
+                let name = document.getElementById('name');
+                name.style.border = '1px solid red';
+                return false;
+            }
+            if(pw == "" || cpw == "") {
+                alert('Password can\'t be empty, please set the password!');
+                return false;
+            }
+            if(pw != cpw) {
+                alert('Password doen\'t match!');
+                return false;
+            }else {
+                return true;
+            }
+            
+
+            
+        }
+    </script>
+</body>
+</html>

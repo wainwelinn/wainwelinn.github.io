@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+    <style>
+        body{
+            margin-left: 250px;
+            margin-top: 100px;
+        }
+        #name,#email,#password,#confirmPassword{
+            width: 250px;
+            height: 25px;
+        }
+        #submit{
+            width: 80px;
+            height: 25px;
+        }
+        #checkboxID{
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JS Validation</h1>
+
+    <form action="register.php" onsubmit="return checkValue()">
+    
+        <label for="name">Name:</label><br>
+        <input type="text" name="" id="name" name="name">
+        <span id="name_error"></span>
+        
+        <br><br>
+    
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" id="email">
+        <span id="email_error"></span>
+        
+        <br><br>
+    
+        <label for="password">Password:</label><br>
+        <input type="password" name="password" id="password">
+        <span id="password_error"></span>
+        
+        <br><br>
+    
+        <label for="confirmPassword">Confirm Password:</label><br>
+        <input type="password" name="confirmPassword" id="confirmPassword">
+        <span id="confirmPassword_error"></span>
+        
+        <br><br>
+        <input type="checkbox" id="checkboxID" onclick="showPassword()">
+        <label for="check" id="show">Show Password</label>
+
+        <br><br>
+
+        <input type="submit" value="Register" id="submit">
+    
+    </form>
+    
+    <script>
+        
+        function checkValue(){
+            let nameValue=document.getElementById('name').value;
+            let name=document.getElementById('name');
+            let name_error=document.getElementById('name_error');
+
+            let emailValue=document.getElementById('email').value;
+            let email=document.getElementById('email');
+            let email_error=document.getElementById('email_error');
+
+            let passwordValue=document.getElementById('password').value;
+            let password=document.getElementById('password');
+            let password_error=document.getElementById('password_error');
+
+            let confirmPasswordValue=document.getElementById('confirmPassword').value;
+            let confirmPassword=document.getElementById('confirmPassword');
+            let confirmPassword_error=document.getElementById('confirmPassword_error');
+
+            if(nameValue=='' && emailValue=='' && passwordValue=='' && confirmPasswordValue=='')
+            {
+                    name.style.border='1px solid red';
+                    name_error.innerText='Name field required';
+                    name_error.style.color='red';
+                
+                    email.style.border='1px solid red';
+                    email_error.innerText='Email field required';
+                    email_error.style.color='red'; 
+                    
+                    password.style.border='1px solid red';
+                    password_error.innerText='Password field required';
+                    password_error.style.color='red';    
+
+                    confirmPassword.style.border='1px solid red';
+                    confirmPassword_error.innerText='Confirm Password field required';
+                    confirmPassword_error.style.color='red';   
+
+                    return false;
+            }
+            else
+            {
+                if(nameValue=='')
+                {
+                    name.style.border='1px solid red';
+                    name_error.innerText='Name field required';
+                    name_error.style.color='red';
+                }
+                else
+                {
+                    name.removeAttribute('style');
+                    name_error.innerText=''; 
+                }
+                if(emailValue=='')
+                {
+                    email.style.border='1px solid red';
+                    email_error.innerText='Email field required';
+                    email_error.style.color='red';     
+                }
+                else
+                {
+                    email.removeAttribute('style');
+                    email_error.innerText='';     
+                }
+                if(passwordValue=='')
+                {
+                    password.style.border='1px solid red';
+                    password_error.innerText='Password field required';
+                    password_error.style.color='red';     
+                }
+                else
+                {
+                    password.removeAttribute('style');
+                    password_error.innerText='';     
+                }
+                if(confirmPasswordValue=='')
+                {
+                    confirmPassword.style.border='1px solid red';
+                    confirmPassword_error.innerText='Confirm Password field required';
+                    confirmPassword_error.style.color='red';         
+                }
+                else
+                {
+                    confirmPassword.removeAttribute('style');
+                    confirmPassword_error.innerText='';
+                }
+
+                if(nameValue!='' && emailValue!='' && passwordValue!='' && confirmPasswordValue!='')
+                {
+                    if(passwordValue!=confirmPasswordValue)
+                    {
+                        alert('Password does not match');
+                        password.style.border='1px solid red';
+                        confirmPassword.style.border='1px solid red';
+
+                        return false;
+                    }
+                    return true;
+                }
+                return false;
+            }    
+        }
+        function showPassword()
+        {
+            let password=document.getElementById('password');
+            let confirmPassword=document.getElementById('confirmPassword');
+
+            if(password.getAttribute('type')=='password'&& confirmPassword.getAttribute('type')=='password')
+            {
+                password.removeAttribute('type');
+                password.setAttribute('type','text');
+
+                confirmPassword.removeAttribute('type');
+                confirmPassword.setAttribute('type','text');
+            }
+            else
+            {
+                password.removeAttribute('type');
+                password.setAttribute('type','password'); 
+
+                confirmPassword.removeAttribute('type');
+                confirmPassword.setAttribute('type','password'); 
+            }           
+        }
+    </script>
+</body>
+</html>

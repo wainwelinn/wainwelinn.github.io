@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae molestias, labore quaerat error excepturi accusantium maiores quidem delectus soluta, aspernatur dicta, quisquam eaque officia iure qui reiciendis incidunt. Commodi, laudantium?Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae molestias, labore quaerat error excepturi accusantium maiores quidem delectus soluta, aspernatur dicta, quisquam eaque officia iure qui reiciendis incidunt. Commodi, laudantium?Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae molestias, labore quaerat error excepturi accusantium maiores quidem delectus soluta, aspernatur dicta, quisquam eaque officia iure qui reiciendis incidunt. Commodi, laudantium?Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae molestias, labore quaerat error excepturi accusantium maiores quidem delectus soluta, aspernatur dicta, quisquam eaque officia iure qui reiciendis incidunt. Commodi, laudantium?</p>
+
+    <button id="hide">Hide</button>
+
+    <button id="show">Show</button>
+
+    <button id="toggle">Toggle</button>
+
+    <button id="fade-in">Fade In</button>
+
+    <button id="fade-out">Fade Out</button>
+
+    <button id="fade-toggle">Fade Toggle</button>
+
+    <button id="fade-to">Fade To</button>
+
+    <button id="fade-to2">FadeTo2</button>
+
+    <script src="jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+           $('#hide').click(function(){
+            $('p').hide(1000, function(){
+                alert('p tag is hide');
+            }); // .hide(speed, callback function)
+           })
+
+           $('#show').click(function(){
+            $('p').show('slow'); //.show(speed, callback function)
+           })
+
+           $('#toggle').click(function(){
+            $('p').toggle(1000); //.toggle(speed, callback function)
+           })
+
+           $('#fade-out').click(function(){
+            $('p').fadeOut('slow'); //.fadeOut(speed, callback function)
+           })
+
+           $('#fade-in').click(function(){
+            $('p').fadeIn('slow'); //.fadeIn(speed, callback function)
+           })
+
+           $('#fade-toggle').click(function(){
+            $('p').fadeToggle(5000);
+           })
+
+           $('#fade-to').click(function(){
+            $('p').fadeTo(1000,0.1); //.fadeTo(speed, opacity(0-1), callback function);
+           })
+
+           $('#fade-to2').click(function(){
+            $('p').fadeTo(1000,1); 
+           })
+        })
+    </script>
+</body>
+</html>
