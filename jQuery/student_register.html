@@ -85,7 +85,8 @@
                     <td>${v.stu_email}</td>
                     <td>${v.stu_phone}</td>
                     <td>${v.stu_year}</td>
-                    <td><button class="edit" data-index="${i}" data-name="${v.stu_name}" data-email="${v.stu_email}" data-phone="${v.stu_phone}" data-year="${v.stu_year}">Edit</button> <button class="delete" data-index"${i}">Delete</button></td>
+                    <td><button class="edit" data-index="${i}" data-name="${v.stu_name}" data-email="${v.stu_email}" data-phone="${v.stu_phone}" data-year="${v.stu_year}">Edit</button>
+                         <button class="delete" data-index="${i}">Delete</button></td>
                     </tr>`;
 
                     
@@ -174,7 +175,7 @@
             $('#index').val(index);
             $('#edit_name').val(name);
             $('#edit_email').val(email);
-            $('#edit_phone').val(email);
+            $('#edit_phone').val(phone);
             $('#edit_year').val(year);
         })
 
