@@ -7,7 +7,7 @@
     <title>Student Register</title>
 </head>
 <body>
-
+    <!-- Add Student Form -->
     <div id="addStudent">
         <h3>Add New Student</h3>
         Name: <input type="text" name="name" id="name"><br><br>
@@ -23,6 +23,23 @@
         <button id="add">Add Student</button>
 
     </div>
+ <!-- Update Student Form -->
+    <div id="updStudent">
+        <h3>Update Student</h3>
+        <input type="hidden" name="index" id="index">
+        Name: <input type="text" name="name" id="edit_name"><br><br>
+        Email: <input type="email" name="email" id="edit_email"><br><br>
+        Phone: <input type="number" name="phone" id="edit_phone"><br><br>
+        Year: <select name="year" id="edit_year">
+            <option value="">Choose Year</option>
+            <option value="First Year">First Year</option>
+            <option value="Second Year">Second Year</option>
+            <option value="Third Year">Third Year</option>
+        </select><br><br>
+
+        <button id="update">Add Student</button>
+
+    </div>
     
     <h3>Students List</h3>
     <table border="1" cellspacing="0" cellpadding="20">
@@ -33,6 +50,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Year</th>
+                <th>Action</th>
             </tr>
         </thead>
 
@@ -45,6 +63,7 @@
     <script>
         
         $(document).ready(function(){
+            $('#updStudent').hide();
             getData();
            
             function getData() {
@@ -66,15 +85,17 @@
                     <td>${v.stu_email}</td>
                     <td>${v.stu_phone}</td>
                     <td>${v.stu_year}</td>
+                    <td><button class="edit" data-index="${i}" data-name="${v.stu_name}" data-email="${v.stu_email}" data-phone="${v.stu_phone}" data-year="${v.stu_year}">Edit</button> <button class="delete" data-index"${i}">Delete</button></td>
                     </tr>`;
 
                     
                 })
                 $('#tbody').html(data);
             }
+        }
+
+
             
-                
-            }
          
             
                  $('#add').click(function(){
@@ -105,13 +126,88 @@
 
                 let stu_Data=JSON.stringify(stuArray);
                 localStorage.setItem("students",stu_Data);
-
-
-          getData();
-                
+                getData();
             })
 
+            $('#tbody').on('click','.delete',function(){
+                
+                    let index=$(this).data('index');
+                    console.log(index);
+               
+                
+            let ans = confirm('Are you sure delete?');
+            console.log(ans);
+
+            if(ans){
+                let stuString = localStorage.getItem('students');
+                if(stuString){
+                    let stuArray= JSON.parse(stuString);
+                    console.log(stuArray);
+
+                    stuArray.splice(index,1);
+                    console.log(stuArray);
+
+                    let stuData= JSON.stringify(stuArray);
+                    localStorage.setItem('students',stuData);
+
+                    getData();
+                }
+            }
+        })
+
+
+        $('#tbody').on('click','.edit',function(){
+            //alert("edit");
+
+            $('#addStudent').hide();
+            $('#updStudent').show();
+
+            let index =$(this).data('index');
+            let name=$(this).data('name');
+            let email=$(this).data('email');
+            let phone=$(this).data('phone');
+            let year=$(this).data('year');
+
+            console.log(index,name,email,phone,year);
+
+
+            $('#index').val(index);
+            $('#edit_name').val(name);
+            $('#edit_email').val(email);
+            $('#edit_phone').val(email);
+            $('#edit_year').val(year);
+        })
+
+        $('#update').click(function(){
+            let upd_index= $('#index').val();
+            let upd_name= $('#edit_name').val();
+            let upd_email= $('#edit_email').val();
+            let upd_phone= $('#edit_phone').val();
+            let upd_year= $('#edit_year').val();
+
+           // console.log(upd_index, upd_name ,upd_email,upd_phone,upd_year);
+           let stuString=localStorage.getItem('students');
+           if(stuString){
+            let stuArray=JSON.parse(stuString);
+            stuArray[upd_index].stu_name=upd_name;
+            stuArray[upd_index].stu_email=upd_email;
+            stuArray[upd_index].stu_phone=upd_phone;
+            stuArray[upd_index].stu_year=upd_year;
+
+            let stuData=JSON.stringify(stuArray);
+            localStorage.setItem('students',stuData);
+
+            getData();
+
+            $('#updStudent').hide();
+            $('#addStudent').show();
+           }
+
+        })
         });
+
+
+        
         
         
             
